@@ -29,6 +29,12 @@ $db = new DatabaseConnection(
 );
 $conn = $db->connect();
 
+if ($conn) {
+    echo "Database connection established!";
+} else {
+    echo "Failed to connect to the database!";
+}
+
 // /**
 //  * Helper functions
 //  */

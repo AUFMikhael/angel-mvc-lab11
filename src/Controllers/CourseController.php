@@ -10,32 +10,13 @@ class CourseController extends BaseController
     public function list()
     {
         $obj = new Course();
-        $courses = $obj->all();
+        $courses = $obj->all(); // Fetch all courses and their enrollees count
 
-        $template = 'courses';
+        $template = 'courses'; // Use the courses.mustache template
         $data = [
-            'items' => $courses
+            'items' => $courses // Pass courses to the template as 'items'
         ];
 
-        $output = $this->render($template, $data);
-
-        return $output;
-    }
-
-    public function viewCourse($course_code)
-    {
-        $courseObj = new Course();
-        $course = null;
-        $enrollees = [];
-
-        $template = 'single-course';
-        $data = [
-            'course' => $course,
-            'enrollees' => $enrollees
-        ];
-
-        $output = $this->render($template, $data);
-
-        return $output;
+        return $this->render($template, $data);
     }
 }
